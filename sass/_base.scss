@@ -1,0 +1,107 @@
+html {
+  font-size: 62.5%; // 10px
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  background-color: $color-main-background;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: $color-font;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+
+  @include for-ipad-pro {
+    max-width: 96rem;
+  }
+
+  @include for-ipad-mini {
+    max-width: 72.8rem;
+  }
+  @include for-iphone11-promax {
+    max-width: 41.4rem;
+    padding: 0 1.8rem;
+  }
+  @include for-iphone-SE {
+    max-width: 32rem;
+  }
+}
+
+.current-page {
+  display: inline-flex;
+  gap: 0.8rem;
+  margin-bottom: 3rem;
+
+  &__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  &__link {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 0.7);
+    text-decoration: none;
+
+    @include for-other-phones-medium {
+      &:last-child {
+        flex-shrink: 0;
+        text-overflow: ellipsis; //3 dot when the tex overflows 200px
+        overflow: hidden;
+        width: 20rem;
+        height: 1.2em;
+        white-space: nowrap;
+      }
+    }
+
+    @include for-iphone11-promax {
+      &:last-child {
+        flex-shrink: 0;
+        text-overflow: ellipsis; //3 dot when the tex overflows 200px
+        overflow: hidden;
+        width: 20rem;
+        height: 1.2em;
+        white-space: nowrap;
+      }
+    }
+
+    @include for-other-phones-small {
+      &:last-child {
+        width: 10rem;
+      }
+    }
+
+    @include for-iphone-SE {
+      &:last-child {
+        width: 10rem;
+      }
+    }
+  }
+
+  &__link:has(svg.current-page__icon) {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

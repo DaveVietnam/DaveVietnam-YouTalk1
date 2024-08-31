@@ -1,0 +1,811 @@
+.article {
+  display: flex;
+  gap: 22.8rem;
+  margin-bottom: $margin-big;
+
+  @include for-ipad-pro {
+    gap: $margin-medium;
+  }
+
+  @include for-other-tablets {
+    flex-direction: column;
+  }
+
+  @include for-ipad-mini {
+    flex-direction: column;
+  }
+
+  &__main {
+    flex-basis: 57.5%;
+
+    @include for-ipad-pro {
+      flex-basis: 76%;
+    }
+  }
+
+  &__heading {
+    font-weight: 700;
+    font-size: 4.8rem;
+    line-height: 5.6rem;
+    margin-bottom: $margin-small;
+
+    /* text/ primary */
+    color: $color-font;
+
+    @include for-other-phones-medium {
+      font-size: 3.2rem;
+      line-height: normal;
+    }
+
+    @include for-iphone11-promax {
+      font-size: 3.2rem;
+      line-height: normal;
+    }
+
+    @include for-other-phones-small {
+      font-size: 2.2rem;
+    }
+    @include for-iphone-SE {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: 0.8rem;
+
+    p {
+      //author and date
+      font-weight: 400;
+      font-size: 1.4rem;
+      color: #494949;
+      margin-bottom: $margin-medium;
+    }
+
+    span {
+      width: 0.4rem;
+      height: 2rem;
+      font-weight: 400;
+      font-size: 1.4rem;
+      color: #494949;
+    }
+  }
+
+  &__img {
+    // width: 100%;
+
+    &-box {
+      display: flex;
+      flex-direction: column;
+      gap: $margin-small;
+    }
+
+    &_1 {
+      width: 100%;
+      margin-bottom: $margin-medium;
+    }
+
+    &_description {
+      font-weight: 400;
+      color: #868686;
+    }
+  }
+
+  &__content {
+    max-width: 58.8rem;
+    margin-bottom: 2.1rem;
+    h4 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: inherit;
+      margin-bottom: $margin-small;
+    }
+    &-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      position: relative;
+
+      li {
+        display: flex;
+        gap: 0.8rem;
+      }
+
+      //nested list
+      li:nth-of-type(2) {
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 0.4rem;
+
+          li:nth-of-type(1) {
+            margin-left: 2.4rem;
+          }
+          li:nth-of-type(2) {
+            margin-left: 4rem;
+          }
+          li:nth-of-type(3) {
+            margin-left: 5.6rem;
+          }
+        }
+      }
+
+      @include for-ipad-pro {
+        li {
+          display: none;
+        }
+
+        li:first-child {
+          display: flex;
+          gap: 0.8rem;
+        }
+        li:last-child {
+          display: flex;
+          gap: 0.8rem;
+        }
+      }
+    }
+
+    &-bullet {
+      min-width: 24px;
+      min-height: 24px;
+
+      position: relative;
+
+      span {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        left: 8px;
+        top: 8px;
+        background: #03b2a5;
+        border-radius: 50%;
+      }
+    }
+
+    &-link {
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      text-decoration: underline;
+      text-decoration-skip-ink: none; // now letters dont break the line
+
+      color: $color-font;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin-bottom: $margin-medium;
+
+    ul {
+      list-style: none;
+    }
+    h3 {
+      font-weight: 700;
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+    }
+
+    p:not(.article__section-quote-author):not(.article__img_description) {
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+    blockquote {
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+
+    &-quote-author {
+      font-weight: 700;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      margin-top: 0.8rem;
+    }
+
+    &-bullet-points {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    &-intro {
+      display: flex;
+      flex-direction: column;
+      gap: $margin-small;
+    }
+
+    &-content-box {
+      display: flex;
+      gap: $margin-medium;
+
+      @include for-other-phones-medium {
+        flex-direction: column;
+      }
+
+      @include for-iphone11-promax {
+        flex-direction: column;
+      }
+
+      &_1,
+      &_2 {
+        display: flex;
+        flex-direction: column;
+        gap: $margin-medium;
+
+        @include for-other-phones-medium {
+          flex-direction: column;
+        }
+
+        @include for-iphone11-promax {
+          flex-direction: column;
+        }
+      }
+    }
+
+    &-exercise {
+      padding: 2.4rem;
+
+      h4 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: inherit;
+        margin-bottom: 0.8rem;
+      }
+
+      &_pink {
+        background-color: rgb(254, 250, 236);
+      }
+      &_blue {
+        background: rgba(3, 178, 165, 0.1);
+      }
+    }
+
+    &-lightening-box {
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      //line
+      &::before {
+        content: "";
+
+        position: absolute;
+        width: 66px;
+        height: 1px;
+        background-color: #0063a8;
+        top: 50%;
+        left: 37%;
+      }
+
+      //line
+      &::after {
+        content: "";
+
+        position: absolute;
+        width: 66px;
+        height: 1px;
+        background-color: #0063a8;
+        top: 50%;
+        right: 37%;
+      }
+    }
+
+    &-categories {
+      @include for-ipad-pro {
+        display: none;
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.2rem;
+
+        li {
+          span {
+            /* · */
+
+            width: 0.4rem;
+            height: 2rem;
+            font-weight: 400;
+            font-size: 1.4rem;
+            color: #494949;
+            margin: 0 0.8rem;
+          }
+
+          a {
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            color: #2963a3;
+          }
+        }
+      }
+    }
+
+    &_1 {
+      h3 {
+        margin-bottom: 1.6rem;
+      }
+
+      &-quotation {
+        position: relative;
+        padding: 2.4rem;
+        background-color: #f3f7fe;
+
+        &-icon {
+          position: absolute;
+          width: 5.6rem;
+          height: 3.6rem;
+          left: 2.4rem;
+          top: 1.4rem;
+        }
+      }
+    }
+
+    &_2 {
+      &-quotation {
+        padding: 2.4rem 10.4rem 4.8rem 10.2rem;
+        position: relative;
+
+        @include for-other-phones-medium {
+          padding: 0;
+        }
+
+        @include for-iphone11-promax {
+          padding: 0;
+        }
+
+        blockquote {
+          text-align: center;
+        }
+
+        &-icon {
+          /* Vector */
+          position: absolute;
+          width: 240px;
+          height: 168px;
+          left: calc(50% - 240px / 2);
+          top: calc(50% - 168px / 2);
+          z-index: -1;
+        }
+      }
+    }
+  }
+
+  &__aside {
+    flex-basis: 23.5%;
+    overflow-x: hidden; //otherwise the container is 304 instead of 282px wide
+    display: flex;
+    flex-direction: column;
+    gap: $margin-medium;
+
+    @include for-other-tablets {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @include for-ipad-mini {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @include for-other-phones-small {
+      justify-content: center;
+    }
+
+    @include for-iphone-SE {
+      justify-content: center;
+    }
+
+    &-schedule-box {
+      padding: 2.4rem;
+      background-color: #e6f0fd;
+      display: flex;
+      flex-direction: column;
+      gap: $margin-medium;
+      border-radius: 1.6rem;
+
+      @include for-other-tablets {
+        flex-basis: 48%;
+      }
+
+      @include for-ipad-mini {
+        flex-basis: 48%;
+      }
+
+      @include for-other-phones-medium {
+        flex-grow: 1;
+      }
+
+      @include for-iphone11-promax {
+        flex-grow: 1;
+      }
+
+      &-content {
+        text-align: center;
+        h4 {
+          font-weight: 700;
+          font-size: 1.8rem;
+          line-height: 2.4rem;
+          margin-bottom: 0.8rem;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 1.4rem;
+          line-height: 2rem;
+        }
+      }
+    }
+
+    &-specialist-box {
+      text-align: center;
+      padding: 2.4rem 1.6rem 3.6rem;
+      border: 1px solid #dedede;
+      border-radius: 1.6rem;
+      box-shadow: 0 30px 50px 0 #eff5fb;
+
+      @include for-other-tablets {
+        flex-basis: 48%;
+      }
+
+      @include for-ipad-mini {
+        flex-basis: 48%;
+      }
+
+      @include for-other-phones-medium {
+        flex-grow: 1;
+      }
+
+      @include for-iphone11-promax {
+        flex-grow: 1;
+      }
+
+      &-img {
+        position: relative;
+      }
+
+      &-icons {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 0.8rem;
+
+        @include for-ipad-pro {
+          left: -5%;
+        }
+
+        @include for-ipad-mini {
+          left: 0;
+        }
+
+        span {
+          font-weight: 500;
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+
+          letter-spacing: 0.25px;
+
+          padding: 3px 6px;
+          background: rgba(243, 244, 248, 0.7);
+          border-radius: 6px;
+        }
+      }
+
+      img {
+        border-radius: 50%;
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+        gap: $margin-medium;
+
+        hr {
+          border: none;
+          height: 1px;
+          width: 25rem;
+          background: #ffffff;
+          box-shadow: 0px 1px 0px #dedede;
+          transform: matrix(1, 0, 0, -1, 0, 0);
+
+          @include for-other-tablets {
+            width: 100%;
+          }
+
+          @include for-ipad-mini {
+            width: 100%;
+          }
+        }
+      }
+
+      &-info {
+        p:nth-of-type(1) {
+          /* Лилия */
+          font-size: 2rem;
+          line-height: 2.8rem;
+        }
+        p:nth-of-type(2) {
+          /* Психолог */
+          font-weight: 600;
+          font-size: 1.6rem;
+          line-height: 2.4rem;
+        }
+        p:nth-of-type(3) {
+          /* Опыт6 лет */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.8rem;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          color: #a2a7b1;
+
+          span {
+            /* Ellipse */
+
+            width: 4px;
+            height: 4px;
+            background: #a2a7b1;
+            border-radius: 50%;
+          }
+        }
+      }
+      &-expertise {
+        @include for-ipad-pro {
+          text-align: start;
+        }
+        h5 {
+          font-weight: 700;
+          font-size: 1.6rem;
+          line-height: 2.4rem;
+          margin-bottom: 0.8rem;
+        }
+
+        ul {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+
+          li {
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        p {
+          font-size: 1.4rem;
+          line-height: 2rem;
+        }
+      }
+    }
+
+    &-plan-box {
+      background-color: #fff;
+      border: 1px solid #dedede;
+      border-radius: 2.4rem;
+      box-shadow: 0 30px 50px 0 #eff5fb;
+      padding: 3.2rem;
+      overflow: hidden;
+      position: relative;
+
+      @include for-ipad-pro {
+        padding: 1rem 2rem 4.5rem 2rem;
+      }
+
+      @include for-other-tablets {
+        flex-basis: 48%;
+        align-content: center;
+      }
+      @include for-ipad-mini {
+        flex-basis: 48%;
+        align-content: center;
+      }
+
+      @include for-other-phones-medium {
+        flex-grow: 1;
+        padding: 5.8rem;
+      }
+
+      @include for-iphone11-promax {
+        flex-grow: 1;
+        padding: 5.8rem;
+      }
+
+      @include for-other-phones-small {
+        padding: 3.2rem;
+      }
+
+      @include for-iphone-SE {
+        padding: 3.2rem;
+      }
+
+      &-img_red {
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+      }
+      &-img_blue {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+        gap: $margin-small;
+
+        @include for-ipad-pro {
+          gap: 1.2rem;
+        }
+      }
+
+      h4 {
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+        color: #2963a3;
+
+        span {
+          font-size: 2.4rem;
+        }
+      }
+
+      p {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        color: #011632;
+        padding-right: 2.2rem;
+      }
+
+      &-price {
+        /* 18 500 ₽ */
+        font-weight: 700;
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+      }
+    }
+
+    &-btn {
+      display: inline-block;
+      background-color: #35b3a9;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+
+      color: #ffffff;
+
+      &-schedule {
+        padding: 1.2rem 1.6rem;
+      }
+
+      &-plan {
+        padding: 1.2rem 2.3rem;
+        align-self: flex-start;
+      }
+
+      &-find-specialist {
+        align-self: flex-start;
+        padding: 1.8rem 3.2rem;
+      }
+    }
+
+    &-img {
+      @include for-other-tablets {
+        flex-grow: 1;
+      }
+      @include for-ipad-mini {
+        flex-grow: 1;
+      }
+      @include for-other-phones-medium {
+        flex-grow: 1;
+      }
+
+      @include for-iphone11-promax {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.horizontal-line {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 7.2rem;
+  border: none;
+
+  box-shadow: 0px 1px 0px #dedede;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+
+  @include for-ipad-pro {
+    display: none;
+  }
+}
+
+.find-specialist-box {
+  @include for-ipad-pro {
+    display: none;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  max-width: 35rem;
+  margin-bottom: 15.8rem;
+  h1 {
+    font-weight: 700;
+    font-size: 4.8rem;
+    line-height: 5.6rem;
+    margin-bottom: $margin-medium;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+}
+
+//right picture of a spot
+.right-spot-img {
+  position: absolute;
+  position: absolute;
+
+  right: -35%;
+  top: 41.5%;
+
+  @include for-ipad-pro {
+    display: none;
+  }
+}
+
+//Bottom Pictures
+.bottom-spot-img {
+  position: absolute;
+  right: 0;
+  top: 88%;
+
+  @include for-ipad-pro {
+    display: none;
+  }
+}
+
+.bottom-pic-img {
+  position: absolute;
+  right: 15%;
+  top: 88%;
+
+  @include for-ipad-pro {
+    display: none;
+  }
+
+  &_2 {
+    border-radius: 25%;
+    z-index: -1;
+    position: absolute;
+    bottom: 4.5%;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 41.95%,
+        #ffffff 70.27%
+      ),
+      #eff5fb;
+
+    @include for-ipad-pro {
+      display: none;
+    }
+  }
+}

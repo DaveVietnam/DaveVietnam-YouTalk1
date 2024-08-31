@@ -1,0 +1,277 @@
+.blog {
+  margin-bottom: $margin-huge;
+  &__heading {
+    font-size: 4.8rem;
+    font-weight: 700;
+    color: inherit;
+    margin-bottom: 3.2rem;
+  }
+
+  //Categories
+
+  &__categories {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: $margin-medium;
+
+    @include for-ipad-pro {
+      height: 7.2rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    @include for-iphone11-promax {
+      flex-wrap: nowrap;
+    }
+
+    @include for-other-phones-medium {
+      li {
+        display: none;
+      }
+
+      li:nth-child(-n + 3) {
+        display: list-item;
+        flex-shrink: 0;
+      }
+    }
+  }
+  @include for-iphone11-promax {
+    li {
+      display: none;
+    }
+
+    li:nth-child(-n + 3) {
+      display: list-item;
+      flex-shrink: 0;
+    } /* Display first three */
+  }
+  @include for-other-phones-small {
+    li {
+      display: none;
+    }
+
+    li:nth-child(-n + 3) {
+      display: list-item;
+      flex-shrink: 0;
+    } /* Display first three */
+
+    li:nth-of-type(3) {
+      display: none;
+    }
+  }
+
+  &__link,
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #c1c5cd;
+    border-radius: 2.4rem;
+
+    @include for-iphone-SE {
+      font-size: 1.2rem;
+    }
+
+    @include for-other-phones-small {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__link_active,
+  &__link_active:link,
+  &__link_active:visited {
+    background: #f9fdfd;
+    border: 2px solid #16c8bb;
+  }
+
+  //Articles
+
+  &__articles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(40rem, 60rem));
+    column-gap: $margin-medium;
+
+    @include for-ipad-pro {
+      gap: 2.6rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include for-ipad-mini {
+      grid-template-columns: 1fr;
+    }
+
+    @include for-other-phones-medium {
+      grid-template-columns: 1fr;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &_featured {
+      margin-bottom: $margin-medium;
+    }
+
+    &_other {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(38.4rem, 47.5rem));
+      gap: $margin-medium;
+      margin-bottom: 5.4rem;
+
+      @include for-ipad-pro {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include for-ipad-mini {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include for-other-phones-medium {
+        grid-template-columns: 1fr;
+      }
+
+      @include for-iphone11-promax {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  &__article {
+    overflow: hidden;
+    border-radius: 1.6rem;
+    border: 1px solid #dedede;
+    position: relative;
+    background-color: #ffffff;
+    &-img {
+      width: 100%;
+    }
+
+    &-content {
+      padding: 1.6rem;
+      margin-bottom: 9.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6.8rem;
+
+      @include for-ipad-pro {
+        padding: 1.4rem;
+      }
+
+      &_other {
+        margin-bottom: $margin-medium;
+      }
+
+      h2 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+        margin-bottom: 0.4rem;
+      }
+
+      //author
+      p:nth-of-type(1) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        letter-spacing: 0.25px;
+        color: #494949;
+        margin-bottom: 0.8rem;
+      }
+
+      //text
+      p:nth-of-type(2) {
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 2rem;
+      }
+    }
+    //date
+    &-date {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      margin: 0;
+      letter-spacing: 0.25px;
+      color: #868686;
+
+      position: absolute;
+      right: 51.1rem;
+      top: 47.5rem;
+
+      @include for-ipad-pro {
+        right: initial;
+        top: 95%;
+      }
+
+      &_other {
+        position: absolute;
+        left: 5%;
+        top: 94%;
+
+        @include for-ipad-pro {
+          right: initial;
+          top: 95%;
+        }
+      }
+    }
+
+    &-category {
+      &_1 {
+        background: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        top: 0.8rem;
+        left: 0.8rem;
+      }
+      &_2 {
+        background: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        top: 4.8rem;
+        left: 0.8rem;
+      }
+    }
+  }
+
+  //button
+  &__button {
+    padding: 1.2rem 7.25rem;
+    background: #35b3a9;
+    border-radius: 4px;
+    border: 0;
+    display: inline-block;
+    margin: 0 auto;
+
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  &__background {
+    position: absolute;
+    width: 100%;
+    height: 67.2rem;
+    left: 0px;
+    top: 40.1rem;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 41.95%,
+        #ffffff 70.27%
+      ),
+      #eff5fb;
+  }
+}

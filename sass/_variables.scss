@@ -1,0 +1,63 @@
+// MAIN COLORS
+
+$color-main-background: #ffffff;
+$color-secondary-background: #2963a3;
+$color-font: #333;
+
+//MARGINS AND GAPS
+
+$margin-small: 1.6rem;
+$margin-medium: 2.4rem;
+$margin-big: 4.2rem;
+$margin-huge: 9.9rem;
+
+/////////////Media quaries///////////
+
+/*iPad Pro 12.9*/
+@mixin for-ipad-pro {
+  @media only screen and (max-width: 64em) {
+    @content;
+  }
+}
+
+/*other tablets*/
+@mixin for-other-tablets {
+  @media only screen and (max-width: 62.5em) {
+    @content;
+  }
+}
+
+/*iPad mini*/
+@mixin for-ipad-mini {
+  @media only screen and (max-width: 48em) {
+    @content;
+  }
+}
+
+/*medium phones*/
+@mixin for-other-phones-medium {
+  @media only screen and (max-width: 37.5em) {
+    @content;
+  }
+}
+
+/*Iphone 11 Pro Max -2*/
+@mixin for-iphone11-promax {
+  @media only screen and (max-width: 25.9em) {
+    @content;
+  }
+}
+
+/*for other small phones*/
+@mixin for-other-phones-small {
+  @media only screen and (max-width: 25.8em) {
+    @content;
+  }
+}
+
+/*Iphone SE*/
+@mixin for-iphone-SE {
+  @media only screen and (max-width: 20em) {
+    @content;
+  }
+}
